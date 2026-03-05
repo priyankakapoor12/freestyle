@@ -46,7 +46,7 @@ pipeline {
 
         stage('when environment') {
             when {
-                environment name: 'CURRENT_ENV', value: 'prod'
+                environment name: 'CURRENT_ENV', value: 'prod' //Runs only when ENV=prod.
             }
             steps {
                 echo "This is FINAL running"
@@ -60,7 +60,7 @@ pipeline {
 
         stage('when parameter') {
             when {
-                expression { params.DEPLOY == true }
+                expression { params.DEPLOY == true } //Runs only if a parameter params.DEPLOY is set to true.
             }
             steps {
                 echo "This is FINAL running"
